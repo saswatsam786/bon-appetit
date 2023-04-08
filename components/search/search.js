@@ -4,11 +4,15 @@ import { Autocomplete, Button, Loader, Text } from "@mantine/core";
 import { useStyles } from "./search.styles";
 import { MultiSelect } from '@mantine/core';
 import { IconSearch } from "@tabler/icons"
-import { query, collection, getDocs, db } from "@/firebase/firebase";
+import { query, collection, getDocs, db, where } from "@/firebase/firebase";
+import firebase from 'firebase/app'
+import { orderBy } from "firebase/firestore";
 
 const Search = () => {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([])
+    const [ingredients, setIngredients] = useState([])
+    const [documentData, setDocumentData] = useState(null);
 
     useEffect(() => {
         async function getRecipes() {
@@ -23,7 +27,29 @@ const Search = () => {
         getRecipes();
     }, []);
 
-    const handleData = () => { }
+    const handleData = async () => {
+
+        const docRef = collection(db, "recipes");
+        const q = query(docRef, where("ingredients", "array-contains-any", ingredients));
+
+        getDocs(q)
+            .then((querySnapshot) => {
+                const data = []
+                querySnapshot.forEach((doc) => {
+                    const docData = doc.data();
+                    const matchedIngredients = ingredients.filter((ingredient) => docData.ingredients.includes(ingredient));
+                    if (matchedIngredients.length === ingredients.length) {
+                        data.push({ ...docData })
+                    }
+                });
+                setDocumentData(data);
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+
+
+    }
 
 
     const { classes } = useStyles();
@@ -45,6 +71,7 @@ const Search = () => {
                                 data={data.map((item, key) => ({ label: item, value: item, key: key }))}
                                 placeholder="Search for a recipe"
                                 size="xl"
+                                onChange={setIngredients}
                                 limit={20}
                                 zIndex={1000}
                                 transitionProps={{ duration: 150, transition: 'pop-top-left', timingFunction: 'ease' }}
@@ -57,6 +84,7 @@ const Search = () => {
 
                     </div>
                 </div>
+                {documentData?.map((item) => <div>{item.description}</div>)}
             </div>
         </>)
 }
