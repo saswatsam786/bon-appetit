@@ -54,7 +54,7 @@ export const useStyles = createStyles((theme) => ({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        padding: "4rem",
+        padding: "1rem",
 
     },
 
@@ -66,7 +66,7 @@ export const useStyles = createStyles((theme) => ({
         fontWeight: "1000",
         WebkitTextFillColor: "transparent",
         fontSize: "3rem",
-        marginTop: "4rem",
+        marginTop: "-7rem",
     },
 
     innerRoot: {

@@ -1,3 +1,4 @@
+'use client'
 import {
     Header,
     Menu,
@@ -20,6 +21,10 @@ import {
     IconCircle,
 } from "@tabler/icons";
 import { useStyles } from "./navbar.styles";
+import { auth } from '../../firebase/firebase'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const links = [
     { link: "/", label: "Home" },
@@ -65,7 +70,8 @@ const colors = [
 
 
 export default function Navbar() {
-    const user = ""
+    const [user] = useAuthState(auth);
+    const router = useRouter()
     const wait = null
     const [opened, { toggle }] = useDisclosure(false);
     const { classes } = useStyles();
@@ -94,6 +100,9 @@ export default function Navbar() {
                     ))}
                 </Menu.Dropdown>
             </Menu>
+
+
+
         </>
     );
 
@@ -109,6 +118,14 @@ export default function Navbar() {
                     {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
                 </ActionIcon>
             </Menu.Target>
+            {
+                !user ? <> <Button variant="default" onClick={() => { router.push('/login') }}>Log in</Button>
+                    <Button variant="white" onClick={() => { router.push('/register') }}>Sign up</Button> </>
+                    : <Button variant="white" onClick={() => {
+                        auth.signOut();
+                        toast.success('Sign Out Successful')
+                    }}>Log out</Button>
+            }
         </Menu>
     );
 
@@ -129,8 +146,11 @@ export default function Navbar() {
                             size="sm"
                             color="#fff"
                         />
+
                     </div>
+
                 </Container>
+
             </Header>
         </>
     );
