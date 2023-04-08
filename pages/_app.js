@@ -16,11 +16,9 @@ export default function App({ Component, pageProps }) {
       setPrimaryColor(value);
     }
   };
-  pageProps.toaster = () => {
-    return <ToastProvider />
-  }
 
   return (<>
+    <ToastProvider />
     <MantineProvider
       theme={{ colorScheme, primaryColor, loader: "bars" }}
       withGlobalStyles

@@ -23,6 +23,8 @@ const Search = () => {
         getRecipes();
     }, []);
 
+    const handleData = () => { }
+
 
     const { classes } = useStyles();
     return (
@@ -48,7 +50,7 @@ const Search = () => {
                                 transitionProps={{ duration: 150, transition: 'pop-top-left', timingFunction: 'ease' }}
 
                             ></MultiSelect>
-                                <Button className={classes.button} size="xl">
+                                <Button className={classes.button} size="xl" onClick={handleData}>
                                     <IconSearch />
                                 </Button></>
                         }
