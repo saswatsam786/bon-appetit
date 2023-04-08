@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useState } from "react";
 import { Autocomplete, Button, Loader, Text } from "@mantine/core";
 import { useStyles } from "./search.styles";
@@ -39,7 +40,7 @@ const Search = () => {
                             loading ? <Loader size="xl" className={classes.loader}></Loader> : <><MultiSelect
                                 className={classes.search}
                                 searchable
-                                data={data.map((item) => ({ label: item, value: item }))}
+                                data={data.map((item, key) => ({ label: item, value: item, key: key }))}
                                 placeholder="Search for a recipe"
                                 size="xl"
                                 limit={20}

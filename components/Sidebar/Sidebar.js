@@ -1,3 +1,4 @@
+'use client'
 import { Navbar, Modal } from "@mantine/core";
 import { IconHome, IconListDetails, IconSettings, IconPhone, IconListCheck, IconLogout, IconChartBar } from "@tabler/icons"
 import { useStyles } from "@/components/Sidebar/Sidebar.styles";

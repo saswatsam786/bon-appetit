@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import { useState } from 'react'
 import { MantineProvider, ColorSchemeProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
+import ToastProvider from '@/utils/ToasterProvider';
 
 export default function App({ Component, pageProps }) {
   const [colorScheme, setColorScheme] = useState("dark");
@@ -15,7 +16,9 @@ export default function App({ Component, pageProps }) {
       setPrimaryColor(value);
     }
   };
-
+  pageProps.toaster = () => {
+    return <ToastProvider />
+  }
 
   return (<>
     <MantineProvider

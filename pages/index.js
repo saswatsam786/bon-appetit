@@ -2,7 +2,7 @@ import Navbar from "@/components/navbar/navbar"
 import Search from "@/components/search/search"
 
 
-export default function Home({ func }) {
+export default function Home() {
   return (
     <>
       <Navbar></Navbar>
