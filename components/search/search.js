@@ -115,12 +115,12 @@ const Search = () => {
                                 </Button></div>
                         }
                         <div style={{ marginBottom: "-10rem", display: "flex", flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
-                            {randomData.map((item, key) => (<ImageCard key={key} image={item.image_url || `/default-${Math.floor(Math.random() * 10 % 4)}.jpg`} title={item.name} link={`/recipe/${item.id}`} description={item.description}></ImageCard>))}
+                            {randomData.map((item, key) => (<ImageCard key={key} image={item.image_url || `/default-${key % 4}.jpg`} title={item.name} link={`/recipe/${item.id}`} description={item.description}></ImageCard>))}
                         </div>
 
                     </div>}
                     {!user && <div style={{ marginBottom: "-10rem", display: "flex", flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
-                        {randomData.map((item, key) => (<ImageCard key={key} image={item.image_url || `/default-${Math.floor(Math.random() * 10 % 4)}.jpg`} title={item.name} link={`/recipe/${item.id}`} description={item.description}></ImageCard>))}
+                        {randomData.map((item, key) => (<ImageCard key={key} image={item.image_url || `/default-${key % 4}.jpg`} title={item.name} link={`/recipe/${item.id}`} description={item.description}></ImageCard>))}
                     </div>
                     }
                 </div>

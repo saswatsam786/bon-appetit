@@ -86,7 +86,7 @@ const RecipeID = () => {
                 height={200}
                 width={200}
                 radius="md"
-                src="/default-1.jpg"
+                src={data.image_url || "/default-1.jpg"}
               ></Image>
               <div style={{ margin: "auto" }}>
 
