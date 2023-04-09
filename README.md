@@ -1,7 +1,7 @@
 
-# Project Title
+# IngredientMaster
 
-IngredientMaster: Your Personal Recipe Wizard with Voice-guided Cooking
+Your Personal Recipe Wizard with Voice-guided Cooking
 
 IngredientMaster is a cutting-edge web application that aims to revolutionize your cooking experience. With its innovative features and intuitive interface, IngredientMaster makes cooking enjoyable and effortless, even for beginners.
 
