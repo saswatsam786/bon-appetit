@@ -6,7 +6,7 @@ export const useStyles = createStyles((theme) => ({
         maxWidth: "80vw",
         minWidth: "80vw",
         margin: " 5rem 50%",
-        minHeight: "60rem",
+        minHeight: "40rem",
         transform: "translateX(-50%)",
     },
 
@@ -14,7 +14,7 @@ export const useStyles = createStyles((theme) => ({
         padding: "0.3rem",
         borderRadius: theme.radius.md,
         maxWidth: "80vw",
-        minHeight: "60rem",
+        minHeight: "40rem",
 
         "&:before": {
             content: '""',
@@ -49,7 +49,7 @@ export const useStyles = createStyles((theme) => ({
     root: {
         background: theme.colorScheme === "dark" ? "#222" : "#fff",
         borderRadius: theme.radius.md,
-        minHeight: "60rem",
+        minHeight: "40rem",
         padding: "5rem",
 
     },

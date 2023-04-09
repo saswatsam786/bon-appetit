@@ -76,31 +76,40 @@ const RecipeID = () => {
       <div className={classes.main}>
         <div className={classes.wrapper}>
           <div className={classes.root}>
-            <p>
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 8fr"
+            }}>
+
               <Image
-                style={{ display: "inline" }}
+                style={{ display: "inline", marginRight: "1rem" }}
                 height={200}
                 width={200}
                 radius="md"
                 src="/default-1.jpg"
               ></Image>
-              <span className={classes.textGradient}>Description</span>{" "}
-              <span style={{ fontSize: "20px" }}>
-                {" "}
-                {data.description}{" "}
-              </span>
-            </p>
+              <div style={{ margin: "auto" }}>
 
-            <br></br>
-            <span>
-              <span className={classes.textGradient}>
-                {" "}
-                Ingridients:
-              </span>{" "}
-              <span style={{ fontSize: "20px" }}>
-                {String(data.ingredients)}
-              </span>
-            </span>{" "}
+                <span className={classes.textGradient}>Description</span>{" "}
+                <span style={{ fontSize: "20px" }}>
+                  {" "}
+                  {data.description}{" "}
+                </span>
+
+                <br></br>
+                <span>
+                  <span className={classes.textGradient}>
+                    {" "}
+                    Ingridients:
+                  </span>{" "}
+                  <span style={{ fontSize: "20px" }}>
+                    {String(data.ingredients)}
+                  </span>
+                </span>{" "}
+              </div>
+            </div>
+
+
             <br></br>
             <div
               style={{
