@@ -50,11 +50,7 @@ export const useStyles = createStyles((theme) => ({
         background: theme.colorScheme === "dark" ? "#222" : "#fff",
         borderRadius: theme.radius.md,
         minHeight: "60rem",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "1rem",
+        padding: "5rem",
 
     },
 
@@ -67,6 +63,16 @@ export const useStyles = createStyles((theme) => ({
         WebkitTextFillColor: "transparent",
         fontSize: "3rem",
         marginTop: "-7rem",
+        textTransform: "uppercase"
+    },
+    textGradient: {
+        background: `linear-gradient(-22deg, ${theme.colors[theme.primaryColor][4]
+            } 11%, ${theme.colors[theme.primaryColor][7]} 125% )`,
+
+        backgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        fontSize: "1.5rem"
+
     },
 
     innerRoot: {
@@ -89,5 +95,17 @@ export const useStyles = createStyles((theme) => ({
         left: "50%",
         transform: "translate(-50%, -50%)",
 
+    },
+    slide: {
+        background: `linear-gradient(-22deg, ${theme.colors[theme.primaryColor][4]
+            } 11%, ${theme.colors[theme.primaryColor][7]} 125% )`,
+        height: "100%",
+        fontSize: "2rem",
+        fontWeight: 900,
+        display: "flex",
+        flexDirection: "row",
+        alignContent: "center",
+        justifyContent: "center",
+        color: "white",
     }
 }));

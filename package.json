@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
+    "@mantine/carousel": "^5.10.5",
     "@mantine/core": "^5.1.0",
     "@mantine/dates": "^5.1.0",
     "@mantine/form": "^5.1.0",
@@ -19,11 +20,14 @@
     "@mantine/nprogress": "^5.1.0",
     "@tabler/icons": "^1.79.0",
     "csv-reader": "^1.0.11",
+    "embla-carousel-react": "^7.1.0",
     "firebase": "^9.19.1",
+    "framer-motion": "^10.11.2",
     "next": "13.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-firebase-hooks": "^5.1.1",
-    "react-hot-toast": "^2.4.0"
+    "react-hot-toast": "^2.4.0",
+    "react-speech-recognition": "^3.10.0"
   }
 }
