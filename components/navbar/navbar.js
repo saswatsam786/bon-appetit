@@ -19,6 +19,7 @@ import {
     IconSun,
     IconMoonStars,
     IconCircle,
+    IconIceCream,
 } from "@tabler/icons";
 import { useStyles } from "./navbar.styles";
 import { auth } from '../../firebase/firebase'
@@ -135,7 +136,7 @@ export default function Navbar() {
             <Header height={56} className={classes.header} mb={120}>
                 <Container>
                     <div className={classes.inner}>
-                        <IconSchool size={28} />
+                        <IconIceCream size={28} />
                         <Group spacing={5} className={classes.links}>
                             {items}
                         </Group>
