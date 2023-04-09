@@ -1,5 +1,5 @@
 
-# IngredientMaster
+# IngredientMaster - Bon Hackétit Hackathon 2023
 
 Your Personal Recipe Wizard with Voice-guided Cooking
 
