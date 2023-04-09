@@ -2,7 +2,7 @@ import { createStyles } from "@mantine/core";
 
 export const useStyles = createStyles((theme) => ({
     main: {
-        position: "absolute",
+
         maxWidth: "80vw",
         minWidth: "80vw",
         margin: " 5rem 50%",

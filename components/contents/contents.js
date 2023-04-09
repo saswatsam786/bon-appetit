@@ -1,8 +1,10 @@
 import { Card, Image, Text, Group, Modal, ScrollArea } from '@mantine/core';
 import { useStyles } from './contents.style';
+import { useRouter } from 'next/navigation';
 
 export default function Contents({ opened, close, data }) {
     const { classes } = useStyles();
+    const router = useRouter();
 
     if (!data || !data.length) return <>
         <Modal opened={opened} onClose={close} overflow="auto" size="xl" centered title="No results found" >
@@ -15,7 +17,7 @@ export default function Contents({ opened, close, data }) {
             <ScrollArea h={500}>
                 {data.map((item) => (
 
-                    <Card withBorder radius="md" p={0} className={classes.card} key={item.id}>
+                    <Card withBorder radius="md" p={0} className={classes.card} key={item.id} onClick={() => router.push(`/recipe/${item.id}`)}>
                         <Group noWrap spacing={0}>
                             <Image src={item.image_url || `/default-${Math.floor(Math.random() * 10 % 4)}.jpg`} height={140} width={140} />
                             <div className={classes.body}>

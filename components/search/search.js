@@ -4,9 +4,11 @@ import { useDisclosure } from "@mantine/hooks";
 import { useStyles } from "./search.styles";
 import { MultiSelect } from '@mantine/core';
 import { IconSearch } from "@tabler/icons"
-import { query, collection, getDocs, db, where, limit, startAt, endAt, orderBy } from "@/firebase/firebase";
+import { auth, query, collection, getDocs, db, where, limit, startAt, endAt, orderBy } from "@/firebase/firebase";
 import Contents from "../contents/contents";
 import { ImageCard } from "../card/card";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 
 const Search = () => {
     const [loading, setLoading] = useState(false);
@@ -15,6 +17,7 @@ const Search = () => {
     const [documentData, setDocumentData] = useState(null);
     const [randomData, setRandomData] = useState([])
     const [opened, { open, close }] = useDisclosure(false);
+    const [user] = useAuthState(auth);
 
     useEffect(() => {
         async function getRecipes() {
@@ -93,7 +96,7 @@ const Search = () => {
             >Find Your Recipe</Text>
             <div className={classes.main}>
                 <div className={classes.wrapper}>
-                    <div className={classes.root}>
+                    {user && <div className={classes.root}>
                         {
                             loading ? <Loader size="xl" className={classes.loader}></Loader> : <div style={{ display: "flex", justifyContent: "center", width: "100%" }}><MultiSelect
                                 className={classes.search}
@@ -111,12 +114,15 @@ const Search = () => {
                                     <IconSearch />
                                 </Button></div>
                         }
-                        <div style={{ marginBottom: "-30rem", display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
+                        <div style={{ marginBottom: "-10rem", display: "flex", flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
                             {randomData.map((item, key) => (<ImageCard key={key} image={item.image_url || `/default-${Math.floor(Math.random() * 10 % 4)}.jpg`} title={item.name} link={`/recipe/${item.id}`} description={item.description}></ImageCard>))}
                         </div>
 
+                    </div>}
+                    {!user && <div style={{ marginBottom: "-10rem", display: "flex", flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
+                        {randomData.map((item, key) => (<ImageCard key={key} image={item.image_url || `/default-${Math.floor(Math.random() * 10 % 4)}.jpg`} title={item.name} link={`/recipe/${item.id}`} description={item.description}></ImageCard>))}
                     </div>
-
+                    }
                 </div>
 
             </div>
