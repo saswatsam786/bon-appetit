@@ -23,6 +23,10 @@ With its powerful combination of technologies, including Node.js for efficient b
 Insert gif or link to demo
 
 
+## Live project
+
+[Demo](https://bon-appetit-77-6c88kqz0p-saswatsam786.vercel.app/)
+
 ## Tech Stack
 
 - ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)

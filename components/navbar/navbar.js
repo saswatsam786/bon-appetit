@@ -11,7 +11,6 @@ import {
     Button,
     Link,
 } from "@mantine/core";
-import Sidebar from "../Sidebar/Sidebar";
 import { useDisclosure } from "@mantine/hooks";
 import {
     IconSchool,
@@ -132,7 +131,6 @@ export default function Navbar() {
 
     return (
         <>
-            <Sidebar showModal={opened} setShowModal={toggle}></Sidebar>
             <Header height={56} className={classes.header} mb={120}>
                 <Container>
                     <div className={classes.inner}>

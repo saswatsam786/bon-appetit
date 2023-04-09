@@ -25,17 +25,9 @@ export const useStyles = createStyles((theme) => ({
         justifyContent: "space-between",
         alignItems: "center",
     },
-
-    links: {
-        [theme.fn.smallerThan("sm")]: {
-            display: "none",
-        },
-    },
-
     burger: {
-        [theme.fn.largerThan("sm")]: {
-            display: "none",
-        },
+        display: "none",
+
     },
 
     link: {
