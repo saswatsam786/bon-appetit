@@ -33,6 +33,10 @@ Insert gif or link to demo
 - ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 - Mantine
 
+## Receipes collected from
+
+- Open Food Facts
+
 
 ## Run Locally
 
