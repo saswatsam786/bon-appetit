@@ -1,3 +1,4 @@
+"use client"
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import {
@@ -14,7 +15,7 @@ import {
 import React from "react";
 import { Loader, Text, Image, Button } from "@mantine/core";
 import Navbar from "@/components/navbar/navbar";
-import { useStyles } from "./recipe.styles";
+import { useStyles } from "../../components/receipes/recipe.styles";
 import { Carousel } from "@mantine/carousel";
 
 const RecipeID = () => {
@@ -30,7 +31,6 @@ const RecipeID = () => {
 
   useEffect(() => {
     const getRecipes = async () => {
-      console.log(recipeId);
       const docRef = collection(db, "recipes");
       const q = query(docRef, where("id", "==", Number(recipeId)));
 
@@ -76,17 +76,21 @@ const RecipeID = () => {
       <div className={classes.main}>
         <div className={classes.wrapper}>
           <div className={classes.root}>
-            <Image
-              height={200}
-              width={200}
-              radius="md"
-              src="/default-1.jpg"
-            ></Image>
-            <span className={classes.textGradient}>Description</span>{" "}
-            <span style={{ fontSize: "20px" }}>
-              {" "}
-              {data.description}{" "}
-            </span>
+            <p>
+              <Image
+                style={{ display: "inline" }}
+                height={200}
+                width={200}
+                radius="md"
+                src="/default-1.jpg"
+              ></Image>
+              <span className={classes.textGradient}>Description</span>{" "}
+              <span style={{ fontSize: "20px" }}>
+                {" "}
+                {data.description}{" "}
+              </span>
+            </p>
+
             <br></br>
             <span>
               <span className={classes.textGradient}>
